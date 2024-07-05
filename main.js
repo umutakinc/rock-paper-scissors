@@ -1,5 +1,5 @@
 // Kazananı belirleyecek skor değişkenleri
-var humanScore = 0, computerScore = 0;
+let humanScore = 0, computerScore = 0;
 
 function getComputerChoice() {
     let choices = ["Taş", "Kağıt", "Makas"]; // Taş kağıt makas dizelerinin tutulduğu dizi 
@@ -32,7 +32,6 @@ function playRound(humanChoice, computerChoice) {
     ) {
         console.log(`Kazandınız! ${humanChoice} ${computerChoice}'ı yener.`);
     } else {
-        computerScore = computerScore++;
         console.log(`Kaybettiniz! ${computerChoice} ${humanChoice}'ı yener`);
     }
 }
