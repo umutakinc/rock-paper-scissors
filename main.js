@@ -14,11 +14,8 @@ function getHumanChoice() {
     let promptChoice = prompt('Taş, Kağıt ve Makas değerlerinden birini giriniz.'); // Oyuncunun seçtiği seçenek
     promptChoice = promptChoice.charAt(0).toLocaleUpperCase() + promptChoice.slice(1).toLocaleLowerCase(); // Oyuncudan aldığımız dizeyi ilk harf büyük diğerleri küçük olacak şekilde formatlıyoruz
 
-    return promptChoice;
+    playRound(promptChoice, getComputerChoice());
 }
-
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
@@ -30,10 +27,24 @@ function playRound(humanChoice, computerChoice) {
         || 
         (humanChoice == "Makas" && computerChoice == "Kağıt")
     ) {
+        ++humanScore;
         console.log(`Kazandınız! ${humanChoice} ${computerChoice}'ı yener.`);
     } else {
+        ++computerScore;
         console.log(`Kaybettiniz! ${computerChoice} ${humanChoice}'ı yener`);
+    }
+
+    console.log(humanScore, computerScore);
+
+    if ((humanScore == 5) || (computerScore == 5)) {
+        return
+    } else {
+        getHumanChoice();
     }
 }
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+    getHumanChoice();
+}
+
+playGame();
