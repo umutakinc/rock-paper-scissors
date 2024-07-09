@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Anton SC';
+    src: url('fonts/AntonSC-Regular.woff') format('woff2'),
+        url('fonts/AntonSC-Regular.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --orange: #E4572E;
+    --blue: #3DA5D9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(3rem, 4.9vw, 6rem);
+}
+
+body {
+    background-color: var(--orange);
+    height: 100vh;
+    color: var(--blue);
+    font-family: 'Anton SC', 'Times New Roman', Times, serif;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.selection-container {
+    min-width: 50vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.image-box {
+    position: relative;
+    width: 225px;
+    height: 225px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: var(--blue);
+}
+
+.image-box img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 85%;
+    height: auto;
+    margin-bottom: -5rem;
+    filter: invert(46%) sepia(69%) saturate(3576%) hue-rotate(345deg) brightness(94%) contrast(89%);
+}
+
+.human-select, .computer-select {
+    text-align: center;
+}
+
+.score {
+    margin-top: .5rem;
+}
+
+.start-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .5rem;
+    width: 30%;
+    height: 3.5rem;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background-color: var(--blue);
+    color: var(--orange);
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s all;
+}
+
+.start-btn:hover {
+    scale: 1.05;
+}
+
+@media only screen and (max-width: 992px) {
+    .human-select {
+        margin-right: .75rem;
+    }
+
+    .image-box {
+      width: 150px;
+      height: 150px;
+    }
+
+    .start-btn {
+        width: 75%;
+    }
+}
