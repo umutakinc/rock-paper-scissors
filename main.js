@@ -1,6 +1,11 @@
 // Kazananı belirleyecek skor değişkenleri
 let humanScore = 0, computerScore = 0;
 
+let startBtn = document.querySelector('#startBtn');
+
+let humanScoreEl = document.querySelector('#humanScore');
+let computerScoreEl = document.querySelector('#computerScore');
+
 function getComputerChoice() {
     let choices = ["Taş", "Kağıt", "Makas"]; // Taş kağıt makas dizelerinin tutulduğu dizi 
     let randomNumber = Math.random() * choices.length; // En büyük dizinin uzunluğu olabilecek random sayı
@@ -28,9 +33,11 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice == "Makas" && computerChoice == "Kağıt")
     ) {
         ++humanScore;
+        humanScoreEl.textContent = humanScore;
         console.log(`Kazandınız! ${humanChoice} ${computerChoice}'ı yener.`);
     } else {
         ++computerScore;
+        computerScoreEl.textContent = computerScore;
         console.log(`Kaybettiniz! ${computerChoice} ${humanChoice}'ı yener`);
     }
 
@@ -47,4 +54,4 @@ function playGame() {
     getHumanChoice();
 }
 
-playGame();
+startBtn.addEventListener('click', playGame);
